@@ -6,6 +6,8 @@ module.exports = function(){
         var self = this;
         this.params = _.defaults(config||{}, defaults)
 
+        process.emit('config:get', 'webbridge');
+
         process.on('config.webbridge.change', function(data){
             var data = data || {};
             if(!!data.mappings) {
@@ -55,7 +57,7 @@ module.exports = function(){
                                         }
                                     });
                                 } else if(mapping.OUTGOING.Method == 'POST') {
-                                    var curl = 'curl '+mapping.OUTGOING.URL+' -d \''+JSON.stringify(mapping.OUTGOING.Data||{})+'\'';
+                                    var curl = 'curl -i '+mapping.OUTGOING.URL+' -d \''+JSON.stringify(mapping.OUTGOING.Data||{})+'\'';
                                     console.log(curl);
                                     require('child_process').exec(curl, function (err, stdout, stderr) {
                                         if(err) {

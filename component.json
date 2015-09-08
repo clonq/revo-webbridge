@@ -1,11 +1,11 @@
 {
 	"description": "simple webbridge component",
 	"author": "Ovi Comes",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"dependencies": {
 		"underscore": "*",
 		"jsonschema": "*",
-		"bonsens-models": "0.2.5",
+		"bonsens-models": "*",
 		"request": "*"
 	}
 }
